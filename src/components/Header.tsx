@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "./Button";
+import { useRecoilValue } from "recoil";
+import { userState } from "../state/userState";
 
 const Header = () => {
   const navigate = useNavigate();
-
+  const user = useRecoilValue(userState);
+  console.log(user);
   return (
     <Container>
       <Tabs>
@@ -21,7 +23,11 @@ const Header = () => {
           <Link to="/mypage">My page</Link>
         </Tab>
       </Tabs>
-      <LoginBtn onClick={() => navigate("/login")}>Log in!</LoginBtn>
+      {user ? (
+        <LoginBtn>안녕하세요</LoginBtn>
+      ) : (
+        <LoginBtn onClick={() => navigate("/login")}>Log in!</LoginBtn>
+      )}
     </Container>
   );
 };

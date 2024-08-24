@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const userState = atom<number | null>({
+export const userState = atom<string | null>({
   key: "userState",
   default: null,
 });

@@ -1,12 +1,16 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { supabase } from "../../supabaseClient"; // supabase 클라이언트 임포트
+import { useRecoilState } from "recoil";
+import { userState } from "../../state/userState";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [user, setUser] = useRecoilState(userState);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -16,8 +20,28 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: username,
+        password: password,
+      });
+
+      if (error) {
+        setError("로그인 실패: " + error.message);
+        return;
+      }
+
+      const res = data.user.id;
+      setUser(res);
+      console.log("로그인성공", res);
+
+      // 로그인 성공
+      navigate("/");
+    } catch (error) {
+      setError("로그인 중 오류가 발생했습니다.");
+    }
   };
 
   return (
@@ -36,10 +60,7 @@ const Login = () => {
           onChange={handlePasswordChange}
           placeholder="비밀번호"
         />
-        {/* <KeepLoginCheckBox>
-          <input type="checkbox" />
-          <span>로그인 상태 유지</span>
-        </KeepLoginCheckBox> */}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <Button type="submit">로그인</Button>
         <PageLink>
           <span onClick={() => navigate("/signup")}>회원가입</span>
@@ -116,19 +137,17 @@ const Button = styled.button`
   }
 `;
 
-// const KeepLoginCheckBox = styled.div`
-//   display: flex;
-//   justify-content: left;
-//   font-size: 0.9rem;
-//   color: white;
-// `;
+const ErrorMessage = styled.div`
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+`;
 
 const PageLink = styled.div`
   display: flex;
   gap: 10px;
   font-size: 0.9rem;
   color: white;
-
   cursor: pointer;
 `;
 
