@@ -1,34 +1,96 @@
 import styled from "styled-components";
-// import { useRecoilState } from "recoil";
-// import { recordState } from "../../state/recordState";
-import recordData from "../../assets/record-list.json";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { postState } from "../../state/postState";
+import { postImgState } from "../../state/postState";
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { supabase } from "../../supabaseClient";
+import { userState } from "../../state/userState";
 
-interface RecordType {
-  id: number;
-  img: string;
+interface PostType {
+  id: string;
   title: string;
   content: string;
 }
 
+interface PostImgType {
+  img: string;
+}
+
 const Main = () => {
-  // const [records, setRecords] = useRecoilState(recordState);
-  const [records, setRecords] = useState<RecordType[]>([]);
+  const [posts, setPosts] = useRecoilState<PostType[] | null>(postState);
+  const [postImages, setPostImages] = useRecoilState<PostImgType[] | null>(
+    postImgState
+  );
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [modalId, setModalId] = useState<number>(1);
+  const [modalId, setModalId] = useState<string>();
+  const [treeImg, setTreeImg] = useState<string[]>([]);
+  const user = useRecoilValue(userState);
 
   useEffect(() => {
-    setRecords(recordData.content.content);
-  }, [records]);
+    getPost();
+  }, []);
 
-  const handleOpenModal = (record: RecordType) => {
-    setModalId(record.id - 1);
+  const handleOpenModal = (post: PostType) => {
+    setModalId(post.id);
+    console.log("모달띄우기", post);
     setIsOpenModal(true);
   };
 
   const handleCloseModal = () => {
     setIsOpenModal(false);
+  };
+
+  const getPostImg = async (id: string) => {
+    try {
+      const { data, error } = await supabase
+        .from("images")
+        .select("image_path")
+        .eq("post_id", id);
+
+      if (error) {
+        console.log("에러 발생: " + error.message);
+        return;
+      }
+      console.log("이미지데이터", data);
+
+      if (data && data.length === 0) {
+        setTreeImg(data[0].image_path);
+      } else if (data && data.length > 0) {
+        setTreeImg((prev) => [...prev, data[0].image_path]);
+      }
+    } catch (error) {
+      console.log("오류가 발생했습니다.", error);
+    }
+  };
+
+  console.log("treeImg", treeImg);
+
+  const getPost = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("post")
+        .select()
+        .eq("user_id", user);
+
+      if (error) {
+        console.log("에러 발생: " + error.message);
+        return;
+      }
+
+      console.log("가져온 데이터:", data);
+
+      setPosts(data);
+
+      if (data) {
+        // 각 포스트의 이미지를 순차적으로 가져옵니다.
+        for (const post of data) {
+          await getPostImg(post.id);
+        }
+      }
+    } catch (error) {
+      console.log("오류가 발생했습니다.", error);
+    }
   };
 
   return (
@@ -73,28 +135,26 @@ const Main = () => {
       </Sections>
       <TreeBox>
         <TreeImg src="/images/tree.png" alt="tree" />
-        {records.length > 0 && (
-          <>
-            {records.map((record) => (
-              <RecordImg
-                onClick={() => handleOpenModal(record)}
-                key={record.id}
-                src={record.img}
-                alt="recordImg"
-              />
-            ))}
-          </>
-        )}
+        {posts &&
+          treeImg &&
+          treeImg.map((imgSrc: string, index: number) => (
+            <RecordImg
+              onClick={() => handleOpenModal(posts[index])}
+              key={index}
+              src={imgSrc}
+              alt="recordImg"
+            />
+          ))}
         {isOpenModal && (
           <ModalBox>
             <header>
               <IoClose onClick={handleCloseModal} />
             </header>
             <main>
-              <img src={records[modalId].img} alt="record-img" />
+              <img src={treeImg[0]} alt="record-img" />
               <div>
-                <h3>{records[modalId].title}</h3>
-                <span>{records[modalId].content}</span>
+                <h3>{posts[0].title}</h3>
+                <span>{posts[0].content}</span>
               </div>
             </main>
           </ModalBox>
@@ -125,7 +185,6 @@ const Sections = styled.div`
 `;
 
 const Section = styled.section`
-  /* background-color: #686868; */
   color: white;
 
   &:first-child {
@@ -252,11 +311,15 @@ const ModalBox = styled.div`
   background-color: white;
   border-radius: 10px;
   right: 200px;
+
   & header {
     display: flex;
     justify-content: right;
   }
 
+  & svg {
+    font-size: 30px;
+  }
   & main {
     padding: 10px;
   }
@@ -274,10 +337,5 @@ const ModalBox = styled.div`
 
   & img {
     border-radius: 5px;
-    margin-bottom: 20px;
-  }
-
-  & svg {
-    font-size: 30px;
   }
 `;
