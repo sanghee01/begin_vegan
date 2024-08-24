@@ -7,10 +7,13 @@ import Record from "./pages/Record/Record";
 import Map from "./pages/Map/Map";
 import Recipe from "./pages/Recipe/Recipe";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
@@ -21,6 +24,7 @@ const Router = () => {
         <Route path="/recipe" element={<Recipe />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
