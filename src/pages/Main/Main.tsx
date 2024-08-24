@@ -1,6 +1,36 @@
 import styled from "styled-components";
+// import { useRecoilState } from "recoil";
+// import { recordState } from "../../state/recordState";
+import recordData from "../../assets/record-list.json";
+import { useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5";
+
+interface RecordType {
+  id: number;
+  img: string;
+  title: string;
+  content: string;
+}
 
 const Main = () => {
+  // const [records, setRecords] = useRecoilState(recordState);
+  const [records, setRecords] = useState<RecordType[]>([]);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [modalId, setModalId] = useState<number>(1);
+
+  useEffect(() => {
+    setRecords(recordData.content.content);
+  }, [records]);
+
+  const handleOpenModal = (record: RecordType) => {
+    setModalId(record.id - 1);
+    setIsOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
+
   return (
     <Container>
       <Sections>
@@ -43,9 +73,32 @@ const Main = () => {
       </Sections>
       <TreeBox>
         <TreeImg src="/images/tree.png" alt="tree" />
-        {/* <RecordImg src="/images/record-img.jpg" alt="recordImg" />
-        <RecordImg src="/images/record-img.jpg" alt="recordImg" />
-        <RecordImg src="/images/record-img.jpg" alt="recordImg" /> */}
+        {records.length > 0 && (
+          <>
+            {records.map((record) => (
+              <RecordImg
+                onClick={() => handleOpenModal(record)}
+                key={record.id}
+                src={record.img}
+                alt="recordImg"
+              />
+            ))}
+          </>
+        )}
+        {isOpenModal && (
+          <ModalBox>
+            <header>
+              <IoClose onClick={handleCloseModal} />
+            </header>
+            <main>
+              <img src={records[modalId].img} alt="record-img" />
+              <div>
+                <h3>{records[modalId].title}</h3>
+                <span>{records[modalId].content}</span>
+              </div>
+            </main>
+          </ModalBox>
+        )}
       </TreeBox>
     </Container>
   );
@@ -157,36 +210,74 @@ const TreeImg = styled.img`
 const RecordImg = styled.img`
   position: absolute;
   object-fit: cover;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px solid #762e2e;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
 
   &:nth-child(2) {
-    top: 90px;
+    top: 50px;
     right: 250px;
   }
   &:nth-child(3) {
-    top: 30px;
+    top: 100px;
     right: 100px;
   }
   &:nth-child(4) {
-    top: 150px;
-    right: 80px;
+    top: 200px;
+    right: 40px;
+  }
+  &:nth-child(5) {
+    top: 200px;
+    right: 330px;
+  }
+  &:nth-child(6) {
+    top: 240px;
+    right: 440px;
+  }
+  &:nth-child(7) {
+    top: 120px;
+    right: 400px;
+  }
+  &:nth-child(8) {
+    top: 190px;
+    right: 170px;
+  }
+`;
+
+const ModalBox = styled.div`
+  position: fixed;
+  padding: 20px;
+  width: 350px;
+  height: 450px;
+  background-color: white;
+  border-radius: 10px;
+  right: 200px;
+  & header {
+    display: flex;
+    justify-content: right;
   }
 
-  @media screen and (max-width: 1000px) {
-    &:nth-child(2) {
-      top: 90px;
-      right: 250px;
+  & main {
+    padding: 10px;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & span {
+      font-size: 0.9rem;
+      color: #7f7f7f;
     }
-    &:nth-child(3) {
-      top: 30px;
-      right: 60px;
-    }
-    &:nth-child(4) {
-      top: 150px;
-      right: 80px;
-    }
+  }
+
+  & img {
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  & svg {
+    font-size: 30px;
   }
 `;

@@ -1,0 +1,24 @@
+{
+  "content": {
+    "content": [
+      {
+        "id": 1,
+        "img": "/images/record-img.jpg",
+        "title": "Honey lime combo",
+        "content": "1여름 간식으로 제격, 복숭아 (1개) 라임(반개) 베리류 조금"
+      },
+      {
+        "id": 2,
+        "img": "/images/record-img.jpg",
+        "title": "Honey lime combo",
+        "content": "2여름 간식으로 제격, 복숭아 (1개) 라임(반개) 베리류 조금"
+      },
+      {
+        "id": 3,
+        "img": "/images/record-img.jpg",
+        "title": "Honey lime combo",
+        "content": "3여름 간식으로 제격, 복숭아 (1개) 라임(반개) 베리류 조금"
+      }
+    ]
+  }
+}
