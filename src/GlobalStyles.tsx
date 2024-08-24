@@ -21,6 +21,10 @@ const GlobalStyles = createGlobalStyle`
     dd {
     margin: 0;
     }
+    body{
+    height:calc(100dvh - var(--header-height));
+    background-color:var(--background-color)
+    }
 
     ul[role='list'],
     ol[role='list'] {
@@ -32,7 +36,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body, #root {
-    width: 100dvw;
     min-height: 100dvh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
@@ -43,10 +46,10 @@ const GlobalStyles = createGlobalStyle`
     }
     
     a {
-    color: black;
+    color: white;
     text-decoration: none;
         &:visited {
-        color: black;
+        color: white;
         }
     }
 

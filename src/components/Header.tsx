@@ -1,27 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 const Header = () => {
   const navigate = useNavigate();
 
   return (
     <Container>
-      <Logo src="/images/logo.png" alt="logo" onClick={() => navigate("/")} />
       <Tabs>
         <Tab>
-          <Link to="/community">커뮤니티</Link>
+          <Link to="/community">Community</Link>
         </Tab>
         <Tab>
-          <Link to="/record">내 인증</Link>
+          <Link to="/map">MAP</Link>
         </Tab>
         <Tab>
-          <Link to="/map">지도</Link>
+          <Link to="/recipe">RECIPE</Link>
         </Tab>
         <Tab>
-          <Link to="/recipe">레시피</Link>
+          <Link to="/mypage">My page</Link>
         </Tab>
       </Tabs>
-      <LoginBtn>로그인</LoginBtn>
+      <LoginBtn>Log in!</LoginBtn>
     </Container>
   );
 };
@@ -29,60 +29,38 @@ const Header = () => {
 export default Header;
 
 const Container = styled.div`
-  height: var(--header-height);
-  position: sticky;
-  top: 0px;
-  z-index: 10;
-  background-color: white;
-  padding: 15px 0;
+  padding: 0px 40px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: right;
+  gap: 10px;
   align-items: center;
-  transition: background-color 0.5s, backdrop-filter 0.5s, box-shadow 0.5s;
-  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.1);
-`;
-
-const Logo = styled.img`
-  width: 230px;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media screen and (max-width: 1400px) {
-    padding-left: 30px;
-  }
+  height: var(--header-height);
 `;
 
 const Tabs = styled.div`
-  height: 54px;
-  padding: 0 20%;
   display: grid;
+  background-color: #808080;
   grid-template-columns: repeat(4, 1fr);
-  width: 70%;
+  width: 35%;
+  border-radius: 10px;
+  height: 45px;
 `;
 
 const Tab = styled.div`
-  position: relative;
-
   & a {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.15rem;
-    padding: 15px 0;
-    position: relative;
-    transition: color 0.3s;
+    color: white;
   }
 `;
-
 const LoginBtn = styled.button`
-  padding: 10px 15px;
+  padding: 10px 40px;
   background-color: var(--base-color);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
 
   &:hover {

@@ -1,5 +1,7 @@
 :root {
-  --header-height: 85px;
+  --header-height: 130px;
   --footer-height: 210px;
-  --base-color: #68ad45;
+  --base-color: #b9ff82;
+  --font-color: #36c50a;
+  --background-color: #2a2a2a;
 }
