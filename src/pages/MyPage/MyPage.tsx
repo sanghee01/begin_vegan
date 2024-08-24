@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+
 
 const PageContainer = styled.div`
   width: 100%;
@@ -200,7 +202,40 @@ const TemplateButton = styled.button`
   margin-top: 20px;
   cursor: pointer;
 `;
+const BlogImagesSection = styled.div`
+  margin-top: 20px;
+`;
 
+const BlogImageGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+`;
+
+const BlogImageItem = styled.div`
+  position: relative;
+  cursor: pointer;
+`;
+
+const BlogImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+`;
+
+const BlogImageCheckbox = styled.input`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+`;
+
+const InsertButton = styled(TemplateButton)`
+  background: #4CAF50;
+  margin-top: 10px;
+`;
 interface Post {
   id: number;
   title: string;
@@ -209,8 +244,21 @@ interface Post {
   date: string;
 }
 
+interface BlogImage {
+  id: number;
+  url: string;
+}
+
+interface Template {
+  id: number;
+  image: string;
+}
+
 const MyPage: React.FC = () => {
-  const [selectedPost, setSelectedPost] = useState <Post | null>(null);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [blogImages, setBlogImages] = useState<BlogImage[]>([]);
+  const [selectedBlogImage, setSelectedBlogImage] = useState<number | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<number | null>(null);
 
   const posts = [
     { id: 1, title: "레시피 제목", image: "/images/record-img.jpg", author: "업로드한 사람", date: "August 20, 2022" },
@@ -219,10 +267,37 @@ const MyPage: React.FC = () => {
     { id: 4, title: "레시피 제목", image: "/images/record-img.jpg", author: "업로드한 사람", date: "August 20, 2022" },
   ];
 
-  const templates = [
+  const templates: Template[] = [
     { id: 1, image: "/images/template01.png" },
     { id: 2, image: "/images/template02.png" },
   ];
+  
+  const loadBlogImages = () => {
+    const dummyBlogImages = [
+      { id: 1, url: "/images/blogimage01.jpeg" },
+      { id: 2, url: "/images/blogimage02.jpeg" },
+      { id: 3, url: "/images/blogimage03.jpeg" },
+      { id: 4, url: "/images/blogimgae04.jpeg" },
+    ];
+    setBlogImages(dummyBlogImages);
+  };
+
+  const handleBlogImageSelect = (id: number) => {
+    setSelectedBlogImage(id);
+  };
+
+  const handleTemplateSelect = (id: number) => {
+    setSelectedTemplate(id);
+  };
+
+  const handleInsertImage = () => {
+    if (selectedBlogImage && selectedTemplate) {
+      console.log(`Inserting image ${selectedBlogImage} into template ${selectedTemplate}`);
+      // 여기에 실제 이미지 삽입 로직을 구현합니다.
+    } else {
+      alert('템플릿과 이미지를 모두 선택해주세요.');
+    }
+  };
 
   return (
     <PageContainer>
@@ -261,13 +336,35 @@ const MyPage: React.FC = () => {
             <TemplateTitle>Template</TemplateTitle>
             <TemplateGrid>
               {templates.map(template => (
-                <TemplateItem key={template.id}>
+                <TemplateItem key={template.id} onClick={() => handleTemplateSelect(template.id)}>
                   <TemplateImage src={template.image} alt={`Template ${template.id}`} />
-                  <TemplateCheckbox type="checkbox" />
+                  <TemplateCheckbox 
+                    type="checkbox" 
+                    checked={selectedTemplate === template.id}
+                    onChange={() => handleTemplateSelect(template.id)}
+                  />
                 </TemplateItem>
               ))}
             </TemplateGrid>
-            <TemplateButton>템플릿 선택</TemplateButton>
+            <TemplateButton onClick={loadBlogImages}>이미지 불러오기</TemplateButton>
+            {blogImages.length > 0 && (
+              <BlogImagesSection>
+                <TemplateTitle>Images</TemplateTitle>
+                <BlogImageGrid>
+                  {blogImages.map(image => (
+                    <BlogImageItem key={image.id} onClick={() => handleBlogImageSelect(image.id)}>
+                      <BlogImage src={image.url} alt={`Blog Image ${image.id}`} />
+                      <BlogImageCheckbox 
+                        type="checkbox" 
+                        checked={selectedBlogImage === image.id}
+                        onChange={() => handleBlogImageSelect(image.id)}
+                      />
+                    </BlogImageItem>
+                  ))}
+                </BlogImageGrid>
+                <InsertButton onClick={handleInsertImage}>템플릿에 삽입</InsertButton>
+              </BlogImagesSection>
+            )}
           </>
         )}
       </DetailModal>
