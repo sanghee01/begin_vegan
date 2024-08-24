@@ -21,7 +21,7 @@ const Header = () => {
           <Link to="/mypage">My page</Link>
         </Tab>
       </Tabs>
-      <LoginBtn>Log in!</LoginBtn>
+      <LoginBtn onClick={() => navigate("/login")}>Log in!</LoginBtn>
     </Container>
   );
 };
