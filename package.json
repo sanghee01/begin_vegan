@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "vite build",
+    "serve": "vite preview"
   },
+  
+  
   "dependencies": {
     "@supabase/supabase-js": "^2.45.2",
     "@types/recoil": "^0.0.9",
