@@ -421,7 +421,7 @@ const MyPage: React.FC = () => {
         <ProfileSection>
           <ProfileImage src="/images/profile.png" alt="Profile" />
           <ProfileName>무적의 비건</ProfileName>
-          <PostCount>32 Tree Post</PostCount>
+          <PostCount>4 Tree Post</PostCount>
         </ProfileSection>
         <PostGrid>
           {posts.map((post) => (

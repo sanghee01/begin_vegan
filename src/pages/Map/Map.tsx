@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   padding-top: 80px;
-  background: #2A2A2A;
+  background: #2a2a2a;
   color: white;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 `;
 
 const ContentWrapper = styled.div`
@@ -98,7 +98,7 @@ const RecipeGrid = styled.div`
 `;
 
 const RecipeCard = styled.div`
-  background: #181A2A;
+  background: #181a2a;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #242535;
@@ -125,7 +125,7 @@ const RecipeInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #97989F;
+  color: #97989f;
   font-size: 16px;
 `;
 
@@ -140,9 +140,9 @@ const ViewAllButton = styled.button`
   margin: 40px auto;
   padding: 12px 20px;
   background: transparent;
-  border: 1px solid rgba(105, 106, 117, 0.30);
+  border: 1px solid rgba(105, 106, 117, 0.3);
   border-radius: 6px;
-  color: #696A75;
+  color: #696a75;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -152,14 +152,23 @@ const MapPage = () => {
     <PageContainer>
       <ContentWrapper>
         <MapContainer>
-          <MapLink href="https://map.kakao.com/?urlX=657381&urlY=890543&urlLevel=11&map_type=TYPE_MAP&map_hybrid=false" target="_blank">
-            <MapImage 
-              src="https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=640&MX=657381&MY=890543&S=0&IW=1320&IH=572&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo" 
+          <MapLink
+            href="https://map.kakao.com/?target=other&folderid=1074289"
+            target="_blank"
+          >
+            <MapImage
+              src="https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=640&MX=657381&MY=890543&S=0&IW=1320&IH=572&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo"
               alt="대전 지도"
             />
             <MapAttribution>
-              <KakaoLogo src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" alt="카카오맵" />
-              <ViewLargeMapLink href="https://map.kakao.com/?urlX=657381&urlY=890543&urlLevel=11&map_type=TYPE_MAP&map_hybrid=false" target="_blank">
+              <KakaoLogo
+                src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png"
+                alt="카카오맵"
+              />
+              <ViewLargeMapLink
+                href="https://map.kakao.com/?target=other&folderid=1074289"
+                target="_blank"
+              >
                 지도 크게 보기
               </ViewLargeMapLink>
             </MapAttribution>
@@ -172,11 +181,16 @@ const MapPage = () => {
         <RecipeGrid>
           {[...Array(6)].map((_, index) => (
             <RecipeCard key={index}>
-              <RecipeImage src={index % 2 === 0 ? "images/place01.jpg" : "images/place02.png"} alt={`Recipe ${index + 1}`} />
+              <RecipeImage
+                src={
+                  index % 2 === 0 ? "images/place01.jpg" : "images/place02.jpg"
+                }
+                alt={`Recipe ${index + 1}`}
+              />
               <RecipeContent>
-                <RecipeTitle>레시피 제목</RecipeTitle>
+                <RecipeTitle>비건 식당</RecipeTitle>
                 <RecipeInfo>
-                  <AuthorImage src="images/profile.png" alt="Author" />
+                  <AuthorImage src="image/profile.png" alt="Author" />
                   <span>업로드한 사람</span>
                   <span>August 20, 2022</span>
                 </RecipeInfo>

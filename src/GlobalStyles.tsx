@@ -45,13 +45,7 @@ const GlobalStyles = createGlobalStyle`
     text-decoration-skip-ink: auto;
     }
     
-    a {
-    color: white;
-    text-decoration: none;
-        &:visited {
-        color: white;
-        }
-    }
+
 
     img,
     picture {
