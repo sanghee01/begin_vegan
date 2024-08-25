@@ -274,31 +274,31 @@ const MyPage: React.FC = () => {
   const posts = [
     {
       id: "0090c6ca-8ae9-473e-92cb-d67dde0721fb",
-      title: "레시피 제목",
-      image: "/images/record-img.jpg",
-      author: "업로드한 사람",
+      title: "버섯, 토마토 건강식!",
+      image: "/images/1.jpg",
+      author: "시차",
       date: "August 20, 2022",
     },
     {
-      id: "a",
-      title: "레시피 제목",
-      image: "/images/record-img.jpg",
-      author: "업로드한 사람",
-      date: "August 20, 2022",
+      id: "ed3cf0a2-289c-4627-bf8a-5ed74c89d1db",
+      title: "비건 라자냐",
+      image: "/images/2.jpg",
+      author: "시차",
+      date: "August 3, 2022",
     },
     {
       id: "b",
-      title: "레시피 제목",
-      image: "/images/record-img.jpg",
-      author: "업로드한 사람",
-      date: "August 20, 2022",
+      title: "행복 비건!",
+      image: "/images/3.jpg",
+      author: "시차",
+      date: "August 10, 2022",
     },
     {
       id: "c",
-      title: "레시피 제목",
-      image: "/images/record-img.jpg",
-      author: "업로드한 사람",
-      date: "August 20, 2022",
+      title: "맛도리 도리 도리",
+      image: "/images/4.jpg",
+      author: "시차",
+      date: "August 15, 2022",
     },
   ];
 
@@ -316,7 +316,7 @@ const MyPage: React.FC = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:5001/get-images", {
+      const response = await axios.post("143.248.198.13:5001/get-images", {
         post_id: selectedPost.id,
       });
 
@@ -364,7 +364,7 @@ const MyPage: React.FC = () => {
         if (currentTemplateIndex === 0) {
           // 첫 번째 이미지를 처리
           const response = await axios.post(
-            "http://localhost:5001/process-first-image",
+            "143.248.198.13:5001/process-first-image",
             {
               first_image_url: blogImages[selectedBlogImages[0] - 1].url,
             }
@@ -373,7 +373,7 @@ const MyPage: React.FC = () => {
         } else {
           // 네 개의 이미지를 처리
           const response = await axios.post(
-            "http://localhost:5001/process-images",
+            "143.248.198.13:5001/process-images",
             {
               life4cuts_image_urls: selectedBlogImages.map(
                 (id) => blogImages[id - 1].url
