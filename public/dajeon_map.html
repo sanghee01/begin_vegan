@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fa54bf9c704a3b528494536d9d81b7be {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+        <div id="map_fa54bf9c704a3b528494536d9d81b7be" class="folium-map"></div>
+        
+</body>
+<script>
+    
+    
+            var map_fa54bf9c704a3b528494536d9d81b7be = L.map(
+                "map_fa54bf9c704a3b528494536d9d81b7be",
+                {
+                    center: [36.3504, 127.3845],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_eff4a5e1286a1a8d7f1adf64b3156bd3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_eff4a5e1286a1a8d7f1adf64b3156bd3.addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+            var marker_a9511f20480f2db84ba522d0e41a32aa = L.marker(
+                [36.39813104848962, 127.34585183497758],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_ce2067deb7210feb4a930c70952daf47 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_255207d07cb21f08d5d2ed7dd4b495cb = $(`<div id="html_255207d07cb21f08d5d2ed7dd4b495cb" style="width: 100.0%; height: 100.0%;">고향막국수<br>충북 청주시 상당구 문의면 문의시내1길 8-2</div>`)[0];
+                popup_ce2067deb7210feb4a930c70952daf47.setContent(html_255207d07cb21f08d5d2ed7dd4b495cb);
+            
+        
+
+        marker_a9511f20480f2db84ba522d0e41a32aa.bindPopup(popup_ce2067deb7210feb4a930c70952daf47)
+        ;
+
+        
+    
+    
+            var marker_72ae5c6af8b23e9c248336005c3bc27a = L.marker(
+                [36.32337827858484, 127.38974037390474],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_c64ffd74c0049bfc0c7b097d05d4c083 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c218c3e0b212431dbc11b81fd30210f4 = $(`<div id="html_c218c3e0b212431dbc11b81fd30210f4" style="width: 100.0%; height: 100.0%;">호수식당<br>충북 청주시 상당구 문의면 문의시내로 22</div>`)[0];
+                popup_c64ffd74c0049bfc0c7b097d05d4c083.setContent(html_c218c3e0b212431dbc11b81fd30210f4);
+            
+        
+
+        marker_72ae5c6af8b23e9c248336005c3bc27a.bindPopup(popup_c64ffd74c0049bfc0c7b097d05d4c083)
+        ;
+
+        
+    
+    
+            var marker_21681348d4b477935be5a2647a891b60 = L.marker(
+                [36.30098597917705, 127.43373078310552],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_8d0fe068229202e4566273b1be996794 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c7d784a4fffb0624306d9d643a0f1af5 = $(`<div id="html_c7d784a4fffb0624306d9d643a0f1af5" style="width: 100.0%; height: 100.0%;">들꽃이야기<br>충북 청주시 청원구 오창읍 과학산업2로 363</div>`)[0];
+                popup_8d0fe068229202e4566273b1be996794.setContent(html_c7d784a4fffb0624306d9d643a0f1af5);
+            
+        
+
+        marker_21681348d4b477935be5a2647a891b60.bindPopup(popup_8d0fe068229202e4566273b1be996794)
+        ;
+
+        
+    
+    
+            var marker_b06ec4891680e3f9f9ff8d9d6381eb44 = L.marker(
+                [36.350414077532434, 127.34854071890798],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_cf4b9a4e2bb691f9474aebddb23c496c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9ad851dc6aad717df22b8c2c2ee5fe14 = $(`<div id="html_9ad851dc6aad717df22b8c2c2ee5fe14" style="width: 100.0%; height: 100.0%;">정녹샐러드<br>충북 청주시 상당구 영운로 41-1 1층 103호</div>`)[0];
+                popup_cf4b9a4e2bb691f9474aebddb23c496c.setContent(html_9ad851dc6aad717df22b8c2c2ee5fe14);
+            
+        
+
+        marker_b06ec4891680e3f9f9ff8d9d6381eb44.bindPopup(popup_cf4b9a4e2bb691f9474aebddb23c496c)
+        ;
+
+        
+    
+    
+            var marker_bb1890370907fe4d3bf4b559c455daac = L.marker(
+                [36.36746261228326, 127.4118745509514],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_e2bc74d1f00eae03e5b77fe362aadfa3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d2a461f9d8ea44d175c2cc79d569617d = $(`<div id="html_d2a461f9d8ea44d175c2cc79d569617d" style="width: 100.0%; height: 100.0%;">이민우27가지 산채비빔밥<br>충북 청주시 서원구 수곡로 111</div>`)[0];
+                popup_e2bc74d1f00eae03e5b77fe362aadfa3.setContent(html_d2a461f9d8ea44d175c2cc79d569617d);
+            
+        
+
+        marker_bb1890370907fe4d3bf4b559c455daac.bindPopup(popup_e2bc74d1f00eae03e5b77fe362aadfa3)
+        ;
+
+        
+    
+    
+            var marker_1b65f7d6ea6f93e6df5a8bf44145c539 = L.marker(
+                [36.383939175917085, 127.38203105029777],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_db6b27f82dc389619715b18441569ac0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4e9f6fb6c618a9da3779647f577f2921 = $(`<div id="html_4e9f6fb6c618a9da3779647f577f2921" style="width: 100.0%; height: 100.0%;">아성청국장<br>충북 청주시 흥덕구 흥덕로 166</div>`)[0];
+                popup_db6b27f82dc389619715b18441569ac0.setContent(html_4e9f6fb6c618a9da3779647f577f2921);
+            
+        
+
+        marker_1b65f7d6ea6f93e6df5a8bf44145c539.bindPopup(popup_db6b27f82dc389619715b18441569ac0)
+        ;
+
+        
+    
+    
+            var marker_0d9058f945aa5b0fe2a2d9d4611efee6 = L.marker(
+                [36.34912548352005, 127.38174623849483],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_eb78c30efb2be42db52edd7cdef9fef7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7f2d604d9fb0cc9527914b76e7c89a68 = $(`<div id="html_7f2d604d9fb0cc9527914b76e7c89a68" style="width: 100.0%; height: 100.0%;">바누아투과자점<br>충북 청주시 흥덕구 죽천로79번길 29 1,2층</div>`)[0];
+                popup_eb78c30efb2be42db52edd7cdef9fef7.setContent(html_7f2d604d9fb0cc9527914b76e7c89a68);
+            
+        
+
+        marker_0d9058f945aa5b0fe2a2d9d4611efee6.bindPopup(popup_eb78c30efb2be42db52edd7cdef9fef7)
+        ;
+
+        
+    
+    
+            var marker_888c4b106c4d3fe03a2add7a2840631d = L.marker(
+                [36.30094695713902, 127.40088510962433],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_c9a7db7309bfb1ebb8eef2e089715af0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4504ce5e2324a25c26419e2fdc5a57c8 = $(`<div id="html_4504ce5e2324a25c26419e2fdc5a57c8" style="width: 100.0%; height: 100.0%;">샐드위치카페<br>충북 청주시 상당구 산성로104번길 11 1층</div>`)[0];
+                popup_c9a7db7309bfb1ebb8eef2e089715af0.setContent(html_4504ce5e2324a25c26419e2fdc5a57c8);
+            
+        
+
+        marker_888c4b106c4d3fe03a2add7a2840631d.bindPopup(popup_c9a7db7309bfb1ebb8eef2e089715af0)
+        ;
+
+        
+    
+    
+            var marker_0b1de14cef5c323381f26131a82a6aaa = L.marker(
+                [36.32092021578435, 127.41524205019256],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_5c308ae1c547049a58130df2a44229f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dbc819d694723f09b25b22a6b2951ef6 = $(`<div id="html_dbc819d694723f09b25b22a6b2951ef6" style="width: 100.0%; height: 100.0%;">샐드위치<br>충북 청주시 서원구 사직대로 300</div>`)[0];
+                popup_5c308ae1c547049a58130df2a44229f2.setContent(html_dbc819d694723f09b25b22a6b2951ef6);
+            
+        
+
+        marker_0b1de14cef5c323381f26131a82a6aaa.bindPopup(popup_5c308ae1c547049a58130df2a44229f2)
+        ;
+
+        
+    
+    
+            var marker_43bbac572e13b8498a89b8bf7f887c1e = L.marker(
+                [36.31093619879966, 127.37417667855482],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_6517ad5c8689d0239ae5b01dd85d8607 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eeb46c7b7cd8f27dbcfe46a81fc510b4 = $(`<div id="html_eeb46c7b7cd8f27dbcfe46a81fc510b4" style="width: 100.0%; height: 100.0%;">정김밥<br>대전 서구 둔산북로 22</div>`)[0];
+                popup_6517ad5c8689d0239ae5b01dd85d8607.setContent(html_eeb46c7b7cd8f27dbcfe46a81fc510b4);
+            
+        
+
+        marker_43bbac572e13b8498a89b8bf7f887c1e.bindPopup(popup_6517ad5c8689d0239ae5b01dd85d8607)
+        ;
+
+        
+    
+    
+            var marker_1971daee35e2bd260431c72f8c379c4f = L.marker(
+                [36.37744989302097, 127.35625806825878],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_a0f3c0cc67e36cf68fc4058da59b7f48 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cbde8d7708ff663d376261688e7fd3a8 = $(`<div id="html_cbde8d7708ff663d376261688e7fd3a8" style="width: 100.0%; height: 100.0%;">슬로우캘리 봉명점<br>대전 유성구 문화원로 77</div>`)[0];
+                popup_a0f3c0cc67e36cf68fc4058da59b7f48.setContent(html_cbde8d7708ff663d376261688e7fd3a8);
+            
+        
+
+        marker_1971daee35e2bd260431c72f8c379c4f.bindPopup(popup_a0f3c0cc67e36cf68fc4058da59b7f48)
+        ;
+
+        
+    
+    
+            var marker_11c5d6c304731727d6b6bcf4ff224b4a = L.marker(
+                [36.378695483367636, 127.38984515482463],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_bdaaa0e06b03ba9c67411e203244f739 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b8f53a8048882c8aadfcc82fa409c57 = $(`<div id="html_9b8f53a8048882c8aadfcc82fa409c57" style="width: 100.0%; height: 100.0%;">슬로우캘리 둔산점<br>대전 서구 둔산로31번길 50 1층</div>`)[0];
+                popup_bdaaa0e06b03ba9c67411e203244f739.setContent(html_9b8f53a8048882c8aadfcc82fa409c57);
+            
+        
+
+        marker_11c5d6c304731727d6b6bcf4ff224b4a.bindPopup(popup_bdaaa0e06b03ba9c67411e203244f739)
+        ;
+
+        
+    
+    
+            var marker_d4696c000171fa46da21b09ad76917be = L.marker(
+                [36.367895092719486, 127.33625857291716],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_10c711d703f74f5eee0c0bbf3fbc2bc1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7a1713fc246af194c0264f310328abcc = $(`<div id="html_7a1713fc246af194c0264f310328abcc" style="width: 100.0%; height: 100.0%;">그린피스트<br>세종특별자치시 한누리대로 211</div>`)[0];
+                popup_10c711d703f74f5eee0c0bbf3fbc2bc1.setContent(html_7a1713fc246af194c0264f310328abcc);
+            
+        
+
+        marker_d4696c000171fa46da21b09ad76917be.bindPopup(popup_10c711d703f74f5eee0c0bbf3fbc2bc1)
+        ;
+
+        
+    
+    
+            var marker_b68223cb68b587126d369e9f7859c863 = L.marker(
+                [36.349121538016796, 127.33547226054752],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_f733d05b8fa901c66bc7d123c873717d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_22cbd3c8ca4b4d5c859f288f64bb3ff0 = $(`<div id="html_22cbd3c8ca4b4d5c859f288f64bb3ff0" style="width: 100.0%; height: 100.0%;">비건정원<br>충남 천안시 서북구 성환읍 성환15길 6 1층</div>`)[0];
+                popup_f733d05b8fa901c66bc7d123c873717d.setContent(html_22cbd3c8ca4b4d5c859f288f64bb3ff0);
+            
+        
+
+        marker_b68223cb68b587126d369e9f7859c863.bindPopup(popup_f733d05b8fa901c66bc7d123c873717d)
+        ;
+
+        
+    
+    
+            var marker_0ff5a513e0285359145b9a87e9c54b35 = L.marker(
+                [36.30648275592193, 127.36865070909039],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_fbf87ebee6d036bba3f5f4651cdfac60 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7e54bbae2150cb6fb0c62838826b341d = $(`<div id="html_7e54bbae2150cb6fb0c62838826b341d" style="width: 100.0%; height: 100.0%;">데일리샐러드<br>충북 충주시 번영대로 182</div>`)[0];
+                popup_fbf87ebee6d036bba3f5f4651cdfac60.setContent(html_7e54bbae2150cb6fb0c62838826b341d);
+            
+        
+
+        marker_0ff5a513e0285359145b9a87e9c54b35.bindPopup(popup_fbf87ebee6d036bba3f5f4651cdfac60)
+        ;
+
+        
+    
+    
+            var marker_c3326a2dbfd0b6d4d89c25402933e745 = L.marker(
+                [36.35020365207665, 127.43185113829207],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_a7e7bd6d0e6635badba25fbffdf11f50 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b60b427036cc2038656ea8a33e267065 = $(`<div id="html_b60b427036cc2038656ea8a33e267065" style="width: 100.0%; height: 100.0%;">어플레져<br>대전 중구 선화로 92-1</div>`)[0];
+                popup_a7e7bd6d0e6635badba25fbffdf11f50.setContent(html_b60b427036cc2038656ea8a33e267065);
+            
+        
+
+        marker_c3326a2dbfd0b6d4d89c25402933e745.bindPopup(popup_a7e7bd6d0e6635badba25fbffdf11f50)
+        ;
+
+        
+    
+    
+            var marker_6846ebe17b42ea6e214a9635bf592252 = L.marker(
+                [36.30915184755869, 127.41915640932784],
+                {}
+            ).addTo(map_fa54bf9c704a3b528494536d9d81b7be);
+        
+    
+        var popup_115666f72b12b78da6c216b23c7e79ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9478229aa606f7118435eabb80d6bdb1 = $(`<div id="html_9478229aa606f7118435eabb80d6bdb1" style="width: 100.0%; height: 100.0%;">포케153<br>대전 서구 대덕대로 244 106호</div>`)[0];
+                popup_115666f72b12b78da6c216b23c7e79ae.setContent(html_9478229aa606f7118435eabb80d6bdb1);
+            
+        
+
+        marker_6846ebe17b42ea6e214a9635bf592252.bindPopup(popup_115666f72b12b78da6c216b23c7e79ae)
+        ;
+
+        
+    
+</script>
+</html>
