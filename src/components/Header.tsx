@@ -61,7 +61,7 @@ const Tab = styled.div<{ isactive: boolean }>`
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: ${(props) => (props.isactive ? "#00820F" : "white")};
+    color: black;
     background-color: ${(props) => props.isactive && "white"};
     border-radius: 10px;
   }
