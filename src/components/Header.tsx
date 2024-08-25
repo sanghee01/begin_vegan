@@ -1,25 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { userState } from "../state/userState";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const user = useRecoilValue(userState);
   console.log(user);
   return (
     <Container>
       <Tabs>
-        <Tab>
+        <Tab isActive={location.pathname === "/community"}>
           <Link to="/community">Community</Link>
         </Tab>
-        <Tab>
+        <Tab isActive={location.pathname === "/map"}>
           <Link to="/map">MAP</Link>
         </Tab>
-        <Tab>
+        <Tab isActive={location.pathname === "/recipe"}>
           <Link to="/recipe">RECIPE</Link>
         </Tab>
-        <Tab>
+        <Tab isActive={location.pathname === "/mypage"}>
           <Link to="/mypage">My page</Link>
         </Tab>
       </Tabs>
@@ -52,14 +54,16 @@ const Tabs = styled.div`
   height: 45px;
 `;
 
-const Tab = styled.div`
+const Tab = styled.div<{ isActive: boolean }>`
   & a {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: white;
+    color: ${(props) => (props.isActive ? "#00820F" : "white")};
+    background-color: ${(props) => props.isActive && "white"};
+    border-radius: 10px;
   }
 `;
 const LoginBtn = styled.button`
