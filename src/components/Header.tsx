@@ -12,16 +12,16 @@ const Header = () => {
   return (
     <Container>
       <Tabs>
-        <Tab isActive={location.pathname === "/community"}>
+        <Tab isactive={location.pathname === "/community"}>
           <Link to="/community">Community</Link>
         </Tab>
-        <Tab isActive={location.pathname === "/map"}>
+        <Tab isactive={location.pathname === "/map"}>
           <Link to="/map">MAP</Link>
         </Tab>
-        <Tab isActive={location.pathname === "/recipe"}>
+        <Tab isactive={location.pathname === "/recipe"}>
           <Link to="/recipe">RECIPE</Link>
         </Tab>
-        <Tab isActive={location.pathname === "/mypage"}>
+        <Tab isactive={location.pathname === "/mypage"}>
           <Link to="/mypage">My page</Link>
         </Tab>
       </Tabs>
@@ -54,15 +54,15 @@ const Tabs = styled.div`
   height: 45px;
 `;
 
-const Tab = styled.div<{ isActive: boolean }>`
+const Tab = styled.div<{ isactive: boolean }>`
   & a {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: ${(props) => (props.isActive ? "#00820F" : "white")};
-    background-color: ${(props) => props.isActive && "white"};
+    color: ${(props) => (props.isactive ? "#00820F" : "white")};
+    background-color: ${(props) => props.isactive && "white"};
     border-radius: 10px;
   }
 `;
