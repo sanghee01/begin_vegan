@@ -11,6 +11,12 @@ const Header = () => {
   console.log(user);
   return (
     <Container>
+      <LogoImg
+        src="/images/logo.png"
+        onClick={() => {
+          navigate("/");
+        }}
+      />
       <Tabs>
         <Tab isactive={location.pathname === "/community"}>
           <Link to="/community">Community</Link>
@@ -43,6 +49,13 @@ const Container = styled.div`
   gap: 10px;
   align-items: center;
   height: var(--header-height);
+`;
+
+const LogoImg = styled.img`
+  width: 140px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
 `;
 
 const Tabs = styled.div`
